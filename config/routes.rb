@@ -5,5 +5,9 @@ Rails.application.routes.draw do
     get 'landing' => 'pages#landing'
   end
 
+  namespace :lawyer, as: '', path: '' do
+    resources :lawyers, only: [ :index ]
+  end
+
   root 'public/pages#landing'
 end
