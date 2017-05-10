@@ -57,3 +57,4 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'letter_opener', group: :development
 gem 'simple_form'
 gem 'carrierwave'
+gem 'devise'
