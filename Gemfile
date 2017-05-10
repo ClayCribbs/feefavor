@@ -55,3 +55,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'haml-rails', '~> 0.9'
 gem 'friendly_id', '~> 5.1.0'
 gem 'letter_opener', group: :development
+gem 'simple_form'
