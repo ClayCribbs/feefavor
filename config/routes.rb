@@ -13,5 +13,10 @@ Rails.application.routes.draw do
     resources :seekers, only: [ :index ]
   end
 
+  namespace :admin do
+    resources :seekers, only: [ :index ]
+    resources :lawyers, only: [ :index ]
+  end
+
   root 'public/pages#landing'
 end
