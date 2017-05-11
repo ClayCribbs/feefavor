@@ -44,6 +44,7 @@ end
 group :test do
   # Rspec Testing Gems
   gem 'rspec-rails', '~> 3.4'
+  gem 'rails-controller-testing'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
 end

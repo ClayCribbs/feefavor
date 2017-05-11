@@ -1,4 +1,5 @@
 require 'factory_girl_rails'
+require 'rails-controller-testing'
 require 'support/factory_girl'
 require 'database_cleaner'
 require 'support/database_cleaner'
