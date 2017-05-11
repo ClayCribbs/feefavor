@@ -1,5 +1,5 @@
 class DocumentSearchTypesController < ApplicationController
-  before_action :set_document_search_type, only: [:show, :edit, :update, :destroy]
+  before_action :set_document_search_type, only: [:show, :edit, :update]
 
   def index
     @document_search_types = DocumentSearchType.all
@@ -31,11 +31,6 @@ class DocumentSearchTypesController < ApplicationController
     else
       render :edit
     end
-  end
-
-  def destroy
-    @document_search_type.destroy
-    redirect_to document_search_types_url, notice: 'Document search type was successfully destroyed.'
   end
 
   private

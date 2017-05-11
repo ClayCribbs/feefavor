@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :document_search_types
   devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations', passwords: 'users/passwords' }
+
+  resources :document_search_types, except: [ :destroy ]
 
   namespace :public, as: '', path: '' do
     get 'landing' => 'pages#landing'
