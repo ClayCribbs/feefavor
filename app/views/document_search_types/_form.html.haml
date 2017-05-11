@@ -1,8 +1,15 @@
-= simple_form_for(@document_search_type) do |f|
-  = f.error_notification
+.container-fluid
+  .row
+    .col-sm-6.col-sm-offset-3
+      = simple_form_for(@document_search_type) do |f|
+        = f.error_notification
 
-  .form-inputs
-    = f.input :name
-
-  .form-actions
-    = f.button :submit
+        .form-group
+          = f.input :name, input_html: { class: 'form-control' }
+        .form-group
+          = f.fields_for :fields do |builder|
+            = render 'field_fields', f: builder
+          = link_to_add_fields 'Add Field', f, :fields
+        
+        .form-actions
+          = f.button :submit

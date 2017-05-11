@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20170511134907) do
   end
 
   create_table "document_search_type_fields", force: :cascade do |t|
+    t.string   "name"
     t.string   "field_type"
     t.boolean  "required"
     t.integer  "document_search_type_id"

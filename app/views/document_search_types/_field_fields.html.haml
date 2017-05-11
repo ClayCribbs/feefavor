@@ -1,0 +1,11 @@
+.fieldset.well
+  = f.text_field :name, placeholder: 'Field Label', class: 'form-control'
+  .row
+    %br
+    .col-sm-10
+      = f.select :field_type, ['Text Field', 'Multiple Line Text Field', 'Number Select', 'DatePicker'], class: 'form-control'
+      = f.check_box :required
+      = f.label :required
+    .col-sm-2
+      = f.hidden_field :_destroy
+      = link_to 'remove', '#', class: 'remove_fields'
