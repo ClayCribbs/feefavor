@@ -1,7 +1,7 @@
 .container-fluid
   .row
     .col-sm-6.col-sm-offset-3
-      = simple_form_for(@document_search_type) do |f|
+      = simple_form_for([:admin, @document_search_type]) do |f|
         = f.error_notification
 
         .form-group

@@ -1,4 +1,6 @@
-class DocumentSearchTypesController < ApplicationController
+require 'admin/admin_controller.rb'
+
+class Admin::DocumentSearchTypesController < AdminController
   before_action :set_document_search_type, only: [:show, :edit, :update]
 
   def index
@@ -19,7 +21,7 @@ class DocumentSearchTypesController < ApplicationController
   def create
     @document_search_type = DocumentSearchType.new(document_search_type_params)
     if @document_search_type.save
-      redirect_to @document_search_type, notice: 'Document search type was successfully created.'
+      redirect_to admin_document_search_type_path(@document_search_type), notice: 'Document search type was successfully created.'
     else
       render :new
     end
@@ -27,7 +29,7 @@ class DocumentSearchTypesController < ApplicationController
 
   def update
     if @document_search_type.update(document_search_type_params)
-      redirect_to @document_search_type, notice: 'Document search type was successfully updated.'
+      redirect_to admin_document_search_type_path(@document_search_type), notice: 'Document search type was successfully updated.'
     else
       render :edit
     end
