@@ -1,0 +1,20 @@
+%h1 Listing Request Types
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th
+      %th
+      %th
+
+  %tbody
+    - @request_types.each do |request_type|
+      %tr
+        %td= request_type.name
+        %td= link_to 'Show', admin_request_type_path(request_type)
+        %td= link_to 'Edit', edit_admin_request_type_path(request_type)
+
+%br
+
+= link_to 'New Document search type', new_admin_request_type_path

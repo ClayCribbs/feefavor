@@ -27,22 +27,6 @@ ActiveRecord::Schema.define(version: 20170511134907) do
     t.datetime "updated_at",    null: false
   end
 
-  create_table "document_search_type_fields", force: :cascade do |t|
-    t.string   "name"
-    t.string   "field_type"
-    t.boolean  "required"
-    t.integer  "document_search_type_id"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.index ["document_search_type_id"], name: "index_document_search_type_fields_on_document_search_type_id", using: :btree
-  end
-
-  create_table "document_search_types", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
     t.integer  "sluggable_id",              null: false
@@ -53,6 +37,22 @@ ActiveRecord::Schema.define(version: 20170511134907) do
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
     t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+  end
+
+  create_table "request_type_fields", force: :cascade do |t|
+    t.string   "name"
+    t.string   "field_type"
+    t.boolean  "required"
+    t.integer  "request_type_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["request_type_id"], name: "index_request_type_fields_on_request_type_id", using: :btree
+  end
+
+  create_table "request_types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -73,5 +73,5 @@ ActiveRecord::Schema.define(version: 20170511134907) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "document_search_type_fields", "document_search_types"
+  add_foreign_key "request_type_fields", "request_types"
 end

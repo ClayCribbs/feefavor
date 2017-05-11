@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @request_type.name
+
+= link_to 'Edit', edit_admin_request_type_path(@request_type)
+\|
+= link_to 'Back', admin_request_types_path

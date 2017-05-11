@@ -1,6 +1,6 @@
 require 'admin/admin_controller.rb'
 
-class Admin::SeekersController < AdminController
+class Admin::RequestorsController < AdminController
   def index
   end
 end

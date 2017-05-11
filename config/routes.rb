@@ -21,8 +21,8 @@ Rails.application.routes.draw do
   ##       ##     ## ##  ##  ##    ##    ##       ##    ##
   ######## ##     ##  ###  ###     ##    ######## ##     ##
 
-  namespace :lawyer, as: '', path: '' do
-    resources :lawyers, only: [ :index ]
+  namespace :requestor, as: '', path: '' do
+    resources :requestors, only: [ :index ]
   end
 
    ######  ######## ######## ##    ## ######## ########
@@ -33,8 +33,8 @@ Rails.application.routes.draw do
   ##    ## ##       ##       ##   ##  ##       ##    ##
    ######  ######## ######## ##    ## ######## ##     ##
 
-  namespace :seeker, as: '', path: '' do
-    resources :seekers, only: [ :index ]
+  namespace :searcher, as: '', path: '' do
+    resources :searchers, only: [ :index ]
   end
 
      ###    ########  ##     ## #### ##    ##
@@ -46,9 +46,9 @@ Rails.application.routes.draw do
   ##     ## ########  ##     ## #### ##    ##
 
   namespace :admin do
-    resources :seekers, only: [ :index ]
-    resources :lawyers, only: [ :index ]
-    resources :document_search_types, except: [ :destroy ]
+    resources :searchers, only: [ :index ]
+    resources :requestors, only: [ :index ]
+    resources :request_types, except: [ :destroy ]
   end
 
   root 'public/pages#landing'
