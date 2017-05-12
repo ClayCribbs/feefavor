@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170512030237) do
+ActiveRecord::Schema.define(version: 20170512031704) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,19 @@ ActiveRecord::Schema.define(version: 20170512030237) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "requests", force: :cascade do |t|
+    t.integer  "request_type_id"
+    t.integer  "requestor_id"
+    t.integer  "courthouse_id"
+    t.datetime "deadline_at"
+    t.string   "slug"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["courthouse_id"], name: "index_requests_on_courthouse_id", using: :btree
+    t.index ["request_type_id"], name: "index_requests_on_request_type_id", using: :btree
+    t.index ["requestor_id"], name: "index_requests_on_requestor_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -84,4 +97,7 @@ ActiveRecord::Schema.define(version: 20170512030237) do
 
   add_foreign_key "courthouses", "addresses"
   add_foreign_key "request_type_fields", "request_types"
+  add_foreign_key "requests", "courthouses"
+  add_foreign_key "requests", "request_types"
+  add_foreign_key "requests", "users", column: "requestor_id"
 end

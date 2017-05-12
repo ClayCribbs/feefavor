@@ -2,5 +2,5 @@
   .row
     .col-sm-6.col-sm-offset-3.text-center
       %h2 Welcome to FeeFavor!
-      %button.btn.btn-primary
-        Request A Document
+
+      = link_to 'Request A Document', new_request_path, class: 'btn btn-primary'

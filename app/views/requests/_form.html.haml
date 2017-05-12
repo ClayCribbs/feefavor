@@ -1,0 +1,14 @@
+= simple_form_for(@request) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.association :request_type, collection: @request_types, include_blank: false
+    %label
+      Courthouse
+    = f.simple_fields_for :courthouse do |c|
+      = c.input :name
+    
+    = f.input :deadline_at
+
+  .form-actions
+    = f.button :submit

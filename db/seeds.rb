@@ -5,3 +5,20 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+if Rails.env.development?
+  User.create([
+    {email: 'admin@mail.com', password: 'qwer1234', is_admin: true},
+   ])
+end
+
+User.create([
+  {email: 'requestor@mail.com', password: 'qwer1234'},
+  {email: 'searcher@mail.com',  password: 'qwer1234'},
+])
+
+RequestType.create([
+  {name: 'Basic Request'},
+  {name: 'Civil'},
+  {name: 'Criminal'},
+])
