@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170511134907) do
+ActiveRecord::Schema.define(version: 20170512030237) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,15 @@ ActiveRecord::Schema.define(version: 20170511134907) do
     t.float    "longitude"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  create_table "courthouses", force: :cascade do |t|
+    t.string   "name"
+    t.string   "county"
+    t.integer  "address_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["address_id"], name: "index_courthouses_on_address_id", using: :btree
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -73,5 +82,6 @@ ActiveRecord::Schema.define(version: 20170511134907) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "courthouses", "addresses"
   add_foreign_key "request_type_fields", "request_types"
 end
