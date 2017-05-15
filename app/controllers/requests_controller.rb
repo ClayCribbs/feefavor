@@ -12,7 +12,8 @@ class RequestsController < ApplicationController
     @request       = Request.new
     @request_types = RequestType.all
 
-    @request.build_courthouse
+    @courthouse    = @request.build_courthouse
+    @address       = @courthouse.build_address
   end
 
   def edit
@@ -43,9 +44,15 @@ class RequestsController < ApplicationController
   end
 
   def request_params
-    params.require(:request).permit(:request_type,
+    params.require(:request).permit(:request_type_id,
                                     :deadline_at,
-                                    courthouse_attributes: [ :name ],
+                                    courthouse_attributes: [
+                                      :name,
+                                      address_attributes:
+                                        [ :city, :state ]
+                                      ]
                                     )
+
+
   end
 end

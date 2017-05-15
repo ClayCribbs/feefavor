@@ -1,17 +1,24 @@
-%p#notice= notice
-
-%p
-  %b Request type:
-  = @request.request_type
-%p
-  %b Requestor:
-  = @request.requestor
-%p
-  %b Courthouse:
-  = @request.courthouse
-%p
-  %b Deadline at:
-  = @request.deadline_at
-%p
-  %b Slug:
-  = @request.slug
+.container
+  %h2 Request Basics
+  %p
+    %b Request type:
+    = @request.request_type.name
+  %p
+    %b Requestor:
+    = @request.requestor
+  %p
+    %b Deadline at:
+    = @request.deadline_at
+  %h2 Courtouse
+  %p
+    %b Courthouse Name
+    %br
+    = @request.courthouse.name
+  %p
+    %b Courthouse Address
+    %br
+    - if @request.courthouse.address
+      = @request.courthouse.address.full_street_address
+    - else
+      %i
+        No Address
